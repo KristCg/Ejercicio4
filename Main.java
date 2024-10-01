@@ -7,6 +7,9 @@ import java.util.List;
 
 public class Main extends JFrame {
 
+    String archivoCSV = "Ejercicio4\\data\\Serpientes.csv";
+    LeerCSV ar = new LeerCSV(archivoCSV);
+
     private JTextField nombreCientificoField;
     private JTextField longitudField;
     private JTextField colorPielField;
@@ -40,7 +43,6 @@ public class Main extends JFrame {
 
         guardarButton = new JButton("Guardar");
 
-        // Añadir componentes al panel
         panel.add(nombreCientificoLabel);
         panel.add(nombreCientificoField);
 
@@ -53,15 +55,34 @@ public class Main extends JFrame {
         panel.add(esVenenosaLabel);
         panel.add(esVenenosaCheckBox);
 
-        panel.add(new JLabel()); // Espacio vacío para alinear el botón
+        panel.add(new JLabel());
         panel.add(guardarButton);
 
         add(panel);
 
+        serpientes = ar.Leer();
+
         guardarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                guardarSerpiente();
+                double longitud = Double.parseDouble(longitudField.getText());
+                String especie = nombreCientificoField.getText();
+                String colorPiel = colorPielField.getText();
+                boolean esVenenosa = esVenenosaCheckBox.isSelected();
+
+                Serpientes nuevaSerpiente = new Serpientes(longitud, especie, colorPiel, esVenenosa);
+
+                serpientes.add(nuevaSerpiente);
+
+                ar.GuardarSerpientes(serpientes);
+
+                nombreCientificoField.setText("");
+                longitudField.setText("");
+                colorPielField.setText("");
+                esVenenosaCheckBox.setSelected(false);
+
+                JOptionPane.showMessageDialog(null, "Serpiente guardada correctamente.");
+
             }
         });
     }

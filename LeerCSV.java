@@ -1,8 +1,15 @@
-public class LeerCSV {
-    private String archivoCSV
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-    public LeerCSV(String archivo) {
-        this.archivo = archivo;
+public class LeerCSV {
+    private String archivoCSV;
+
+    public LeerCSV(String archivoCSV) {
+        this.archivoCSV = archivoCSV;
     }
 
     public List<Serpientes> Leer() {
@@ -10,7 +17,7 @@ public class LeerCSV {
         String linea;
         String separador = ",";
 
-        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split(separador);
                 double longitud = Double.parseDouble(datos[0]);
@@ -28,9 +35,9 @@ public class LeerCSV {
         return animales;
     }
 
-    public void GuardarSerpientes(List<Serpientes> animales) {
-        try (FileWriter writer = new FileWriter(archivo)) {
-            for (Serpientes serpiente : animales) {
+    public void GuardarSerpientes(List<Serpientes> serpientes) {
+        try (FileWriter writer = new FileWriter(archivoCSV)) {
+            for (Serpientes serpiente : serpientes) {
                 writer.append(String.valueOf(serpiente.getLongitud()));
                 writer.append(",");
                 writer.append(serpiente.getEspecie());

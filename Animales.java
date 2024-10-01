@@ -1,4 +1,4 @@
-public Animales class(
+public class Animales(){
     protected String nombre_cientifico;
     protected int esperanza_de_vida;
 
@@ -7,23 +7,23 @@ public Animales class(
         this.esperanza_de_vida = esperanza_de_vida;
     }
 
-    public String getNombreCientifico(){
+    public String getNombreCientifico() {
         return nombre_cientifico;
     }
 
-    public int getEsperanzaDeVida(){
+    public int getEsperanzaDeVida() {
         return esperanza_de_vida;
     }
 
-    public double CostoMantenimiento(){
+    public double CostoMantenimiento() {
 
     }
 
-    public double PresupuestoRecinto(){
+    public double PresupuestoRecinto() {
 
     }
 
-    public String AsignarRecinto(){
-        
+    public String AsignarRecinto() {
+
     }
-)
+}
