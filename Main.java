@@ -66,4 +66,8 @@ public class Main extends JFrame {
         });
     }
 
+    public static void main(String[] args) {
+        Main ventana = new Main();
+        ventana.setVisible(true);
+    }
 }
