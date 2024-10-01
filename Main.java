@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Main extends JFrame {
 
-    String archivoCSV = "Ejercicio4\\data\\Serpientes.csv";
+    String archivoCSV = "data/Serpientes.csv";
     LeerCSV ar = new LeerCSV(archivoCSV);
 
     private JTextField nombreCientificoField;
