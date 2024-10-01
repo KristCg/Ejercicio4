@@ -27,4 +27,21 @@ public class LeerCSV {
 
         return animales;
     }
+
+    public void GuardarSerpientes(List<Serpientes> animales) {
+        try (FileWriter writer = new FileWriter(archivo)) {
+            for (Serpientes serpiente : animales) {
+                writer.append(String.valueOf(serpiente.getLongitud()));
+                writer.append(",");
+                writer.append(serpiente.getEspecie());
+                writer.append(",");
+                writer.append(serpiente.getColorPiel());
+                writer.append(",");
+                writer.append(String.valueOf(serpiente.getTipoVeneno()));
+                writer.append("\n");
+            }
+        } catch (IOException e) {
+
+        }
+    }
 }
