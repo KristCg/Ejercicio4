@@ -6,10 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LeerCSV {
-    private String archivoCSV;
+    private String archivoCSV_serpiente;
+    private String archivoCSV_reptilA;
 
-    public LeerCSV(String archivoCSV) {
-        this.archivoCSV = archivoCSV;
+    public LeerCSV(String archivoCSV_serpiente) {
+        this.archivoCSV_serpiente = archivoCSV_serpiente;
     }
 
     public List<Serpientes> Leer() {
@@ -17,7 +18,7 @@ public class LeerCSV {
         String linea;
         String separador = ",";
 
-        try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV_serpiente))) {
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split(separador);
                 String nombre_cientifico = datos[0];
@@ -43,7 +44,7 @@ public class LeerCSV {
     }
 
     public void GuardarSerpientes(List<Serpientes> serpientes) {
-        try (FileWriter writer = new FileWriter(archivoCSV)) {
+        try (FileWriter writer = new FileWriter(archivoCSV_serpiente)) {
             for (Serpientes serpiente : serpientes) {
                 writer.append(serpiente.getNombreCientifico());
                 writer.append(",");
@@ -75,7 +76,7 @@ public class LeerCSV {
         String linea;
         String separador = ",";
     
-        try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV_reptilA))) {
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split(separador);
                 String nombre_cientifico = datos[0];
@@ -101,7 +102,7 @@ public class LeerCSV {
     }
     
     public void GuardarReptilesAcuaticos(List<ReptilesAcuaticos> reptilesAcuaticos) {
-        try (FileWriter writer = new FileWriter(archivoCSV)) {
+        try (FileWriter writer = new FileWriter(archivoCSV_reptilA)) {
             for (ReptilesAcuaticos reptilAcuatico : reptilesAcuaticos) {
                 writer.append(reptilAcuatico.getNombreCientifico());
                 writer.append(",");
