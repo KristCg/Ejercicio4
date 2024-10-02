@@ -13,6 +13,9 @@ public class Main extends JFrame {
     LeerCSV arReptiles = new LeerCSV(archivoCSVReptiles);
 
     private JTextField nombreCientificoField;
+    private JTextField esperanzaDeVidaField;       
+    private JTextField temperaturaCorporalField;   
+    private JTextField cantidadHuevosField;
     private JTextField longitudField;
     private JTextField colorPielField;
     private JCheckBox esVenenosaCheckBox;
@@ -44,10 +47,19 @@ public class Main extends JFrame {
         setJMenuBar(menuBar);
 
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(6, 2));
+        panel.setLayout(new GridLayout(9, 2));
 
         JLabel nombreCientificoLabel = new JLabel("Nombre científico:");
         nombreCientificoField = new JTextField();
+
+        JLabel esperanzaDeVidaLabel = new JLabel("Esperanza de vida (años):");
+        esperanzaDeVidaField = new JTextField();
+
+        JLabel temperaturaCorporalLabel = new JLabel("Temperatura corporal (°C):");
+        temperaturaCorporalField = new JTextField();
+
+        JLabel cantidadHuevosLabel = new JLabel("Cantidad de huevos:");
+        cantidadHuevosField = new JTextField();
 
         JLabel longitudLabel = new JLabel("Longitud (metros):");
         longitudField = new JTextField();
@@ -66,6 +78,15 @@ public class Main extends JFrame {
 
         panel.add(nombreCientificoLabel);
         panel.add(nombreCientificoField);
+
+        panel.add(esperanzaDeVidaLabel);
+        panel.add(esperanzaDeVidaField);
+
+        panel.add(temperaturaCorporalLabel);
+        panel.add(temperaturaCorporalField);
+
+        panel.add(cantidadHuevosLabel);
+        panel.add(cantidadHuevosField);
 
         panel.add(longitudLabel);
         panel.add(longitudField);
@@ -106,12 +127,15 @@ public class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    String nombreCientifico = nombreCientificoField.getText();
+                    int esperanzaDeVida = Integer.parseInt(esperanzaDeVidaField.getText());
+                    int temperaturaCorporal = Integer.parseInt(temperaturaCorporalField.getText());
+                    int cantidadHuevos = Integer.parseInt(cantidadHuevosField.getText());
                     double longitud = Double.parseDouble(longitudField.getText());
-                    String especie = nombreCientificoField.getText();
                     String colorPiel = colorPielField.getText();
                     boolean esVenenosa = esVenenosaCheckBox.isSelected();
 
-                    Serpientes nuevaSerpiente = new Serpientes(longitud, especie, colorPiel, esVenenosa, 0.0);
+                    Serpientes nuevaSerpiente = new Serpientes(nombreCientifico, esperanzaDeVida, temperaturaCorporal, cantidadHuevos, longitud, nombreCientifico, colorPiel, esVenenosa);
 
                     double recintoAsignado = nuevaSerpiente.asignarRecinto(longitud);
                     nuevaSerpiente.setRecinto(recintoAsignado);
@@ -120,6 +144,9 @@ public class Main extends JFrame {
                     ar.GuardarSerpientes(serpientes);
 
                     nombreCientificoField.setText("");
+                    esperanzaDeVidaField.setText("");
+                    temperaturaCorporalField.setText("");
+                    cantidadHuevosField.setText("");
                     longitudField.setText("");
                     colorPielField.setText("");
                     esVenenosaCheckBox.setSelected(false);
@@ -154,6 +181,9 @@ public class Main extends JFrame {
                     .append(", Longitud: ").append(serpiente.getLongitud()).append(" metros")
                     .append(", Color: ").append(serpiente.getColorPiel())
                     .append(", Venenosa: ").append(serpiente.getTipoVeneno() ? "Sí" : "No")
+                    .append(", Esperanza de vida: ").append(serpiente.getEsperanzaDeVida()).append(" años")
+                    .append(", Temperatura corporal: ").append(serpiente.getTemperatura_corporal()).append(" °C")
+                    .append(", Cantidad de huevos: ").append(serpiente.getCantidad_huevos())
                     .append(", Recinto: ").append(serpiente.getRecinto()).append(" metros cuadrados")
                     .append("\n");
         }

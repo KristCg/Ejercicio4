@@ -18,17 +18,15 @@ public class Animales{
 
     public double CostoMantenimiento(String tamaño_reptil, double costo_alimentacion){
         double costoMes = 0.00;
-        if(tamaño_reptil == "pequeno"){
+        if(tamaño_reptil.equals("pequeno")){
             costoMes = (50*30) + costo_alimentacion;
         }
-        else if(tamaño_reptil == "mediano"){
+        else if(tamaño_reptil.equals("mediano")){
             costoMes = (200*30) + costo_alimentacion;
         }
 
-        else if(tamaño_reptil == "mediano"){
-            costoMes = (200*30) + costo_alimentacion;
-        }
-        else if(tamaño_reptil == "mediano"){
+        
+        else if(tamaño_reptil.equals("grande")){
             costoMes = (500*30) + costo_alimentacion;
         }
 
