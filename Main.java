@@ -21,6 +21,10 @@ public class Main extends JFrame {
     private JCheckBox esVenenosaCheckBox;
     private JButton guardarButton;
     private JTextArea historialTextArea;
+    private JButton verificarPresupuestoButton;
+    private JTextField presupuestoField;
+    private JTextField costoAlimentacionField;
+    private JTextField tamañoReptilField;
 
     private List<Serpientes> serpientes;
 
@@ -70,6 +74,15 @@ public class Main extends JFrame {
         JLabel esVenenosaLabel = new JLabel("¿Es venenosa?");
         esVenenosaCheckBox = new JCheckBox();
 
+        JLabel tamañoReptilLabel = new JLabel("Tamaño del reptil (pequeño, mediano, grande):");  // Añadido
+        tamañoReptilField = new JTextField();  // Añadido
+
+        JLabel presupuestoLabel = new JLabel("Presupuesto disponible:");  // Añadido
+        presupuestoField = new JTextField();  // Añadido
+
+        JLabel costoAlimentacionLabel = new JLabel("Costo de alimentación mensual:");  // Añadido
+        costoAlimentacionField = new JTextField();
+
         guardarButton = new JButton("Guardar");
 
         historialTextArea = new JTextArea(10, 30);
@@ -96,6 +109,15 @@ public class Main extends JFrame {
 
         panel.add(esVenenosaLabel);
         panel.add(esVenenosaCheckBox);
+
+        panel.add(presupuestoLabel);
+        panel.add(presupuestoField);
+
+        panel.add(costoAlimentacionLabel); 
+        panel.add(costoAlimentacionField);
+
+        panel.add(tamañoReptilLabel);
+        panel.add(tamañoReptilField);
 
         panel.add(new JLabel());
         panel.add(guardarButton);
@@ -165,14 +187,33 @@ public class Main extends JFrame {
     private void mostrarFormularioSerpientes() {
         JOptionPane.showMessageDialog(this, "Formulario para agregar serpientes.");
     }
-
     private void mostrarFormularioReptiles() {
         JOptionPane.showMessageDialog(this, "Formulario para agregar reptiles acuáticos.");
     }
 
     private void verificarPresupuesto() {
-        JOptionPane.showMessageDialog(this, "Verificación de presupuesto no implementada.");
+        JOptionPane.showMessageDialog(this, "Verificación de presupuesto.");
+        try{
+            String tamañoReptil = tamañoReptilField.getText();
+            double presupuestoDado = Double.parseDouble(presupuestoField.getText());
+            double costoAlimentacion = Double.parseDouble(costoAlimentacionField.getText());
+
+            Animales costoMantenimiento = new CostoMantenimiento();
+            double costoMes = costoMantenimiento.CostoMantenimiento(tamañoReptil, costoAlimentacion);
+
+            if (costoMantenimiento.PresupuestoRecinto(presupuestoDado, costoMes)) {
+                JOption
+                }
+                JOptionPane.showMessageDialog(null, "El presupuesto es suficiente.");
+            } else {
+            JOptionPane.showMessageDialog(null, "El presupuesto no es suficiente.");
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese valores válidos para el presupuesto y el costo de alimentación.");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Ocurrió un error al verificar el presupuesto: " + ex.getMessage());
     }
+        
 
     private void actualizarHistorial() {
         StringBuilder historial = new StringBuilder();
