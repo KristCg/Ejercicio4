@@ -1,18 +1,22 @@
-package Ejercicio4;
-
-public class ReptilesAcuaticos {
+public class ReptilesAcuaticos extends Reptiles{
+    private double longitud;
     private String especie;
     private boolean tipoAgua;
     private int velocidadNado;
     private int duracionBuceo;
-    private double recintos;
+    private double recinto;
 
-    public ReptilesAcuaticos(String especie, boolean tipoAgua, int velocidadNado, int duracionBuceo, double recintos){
+    public ReptilesAcuaticos(String nombre_cientifico, int esperanza_de_vida, int temperatura_corporal, int cantidad_huevos, double longitud, String especie, boolean tipoAgua, int velocidadNado, int duracionBuceo){
+        super(nombre_cientifico, esperanza_de_vida, temperatura_corporal, cantidad_huevos);
+        this.longitud = longitud;
         this.especie = especie;
         this.tipoAgua = tipoAgua;
         this.velocidadNado = velocidadNado;
         this.duracionBuceo = duracionBuceo;
-        this.recintos = recintos;
+        this.recinto = asignarRecinto(longitud);
+    }
+    public double getLongitud() {
+        return longitud;
     }
     public String getEspecie(){
         return especie;
@@ -26,8 +30,11 @@ public class ReptilesAcuaticos {
     public int getDuracionBuceo(){
         return duracionBuceo;
     }
-    public double getRecintos(){
-        return recintos;
+    public double getRecinto() {
+        return recinto;
+    }
+    public void setRecinto(double recinto) {
+        this.recinto = recinto;
     }
     public double asignarRecinto(double longitud) {
         if (longitud < 0.2) {
