@@ -1,11 +1,11 @@
-public class Serpientes extends Reptiles{
+public class Serpientes extends Reptiles {
     private double longitud;
     private String especie;
     private String color_piel;
-    private String tipo_veneno;
-    private double recinto; 
+    private boolean tipo_veneno;
+    private double recinto;
 
-    public Serpientes(double longitud, String especie, String color_piel, String tipo_veneno){
+    public Serpientes(double longitud, String especie, String color_piel, boolean tipo_veneno, double recinto) {
         this.longitud = longitud;
         this.especie = especie;
         this.color_piel = color_piel;
@@ -13,29 +13,30 @@ public class Serpientes extends Reptiles{
         this.recinto = asignarRecinto(longitud);
     }
 
-    public double getLongitud(){
+    public double getLongitud() {
         return longitud;
     }
 
-    public String getEspecie(){
+    public String getEspecie() {
         return especie;
     }
 
-    public String getColorPiel(){
+    public String getColorPiel() {
         return color_piel;
     }
 
-    public String getTipoVeneno(){
+    public Boolean getTipoVeneno() {
         return tipo_veneno;
     }
 
-    public double getRecinto() { 
+    public double getRecinto() {
         return recinto;
     }
-    public void setRecinto(double recinto) { 
+
+    public void setRecinto(double recinto) {
         this.recinto = recinto;
     }
-    
+
     public double asignarRecinto(double longitud) {
         if (longitud < 1) {
             return 2.0;
