@@ -24,8 +24,10 @@ public class LeerCSV {
                 String especie = datos[1];
                 String color_piel = datos[2];
                 boolean tipo_veneno = Integer.parseInt(datos[3]) == 1;
+                double recinto = Double.parseDouble(datos[4]);
 
                 Serpientes serpiente = new Serpientes(longitud, especie, color_piel, tipo_veneno);
+                serpiente.setRecinto(recinto);
                 animales.add(serpiente);
             }
         } catch (IOException e) {
@@ -45,6 +47,8 @@ public class LeerCSV {
                 writer.append(serpiente.getColorPiel());
                 writer.append(",");
                 writer.append(String.valueOf(serpiente.getTipoVeneno()));
+                writer.append(",");
+                writer.append(String.valueOf(serpiente.getRecinto()));  
                 writer.append("\n");
             }
         } catch (IOException e) {

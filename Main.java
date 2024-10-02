@@ -82,6 +82,7 @@ public class Main extends JFrame {
                 esVenenosaCheckBox.setSelected(false);
 
                 JOptionPane.showMessageDialog(null, "Serpiente guardada correctamente.");
+                JOptionPane.showMessageDialog(null, "Serpiente guardada correctamente.\nRecinto asignado: " + nuevaSerpiente.getRecinto() + " metros cuadrados.");
 
             }
         });
