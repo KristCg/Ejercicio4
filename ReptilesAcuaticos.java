@@ -18,16 +18,20 @@ public class ReptilesAcuaticos extends Reptiles{
     public double getLongitud() {
         return longitud;
     }
-    public String getEspecie(){
+
+    public String getEspecie() {
         return especie;
     }
-    public boolean getTipoAgua(){
+
+    public boolean getTipoAgua() {
         return tipoAgua;
     }
-    public int getVelocidadNado(){
+
+    public int getVelocidadNado() {
         return velocidadNado;
     }
-    public int getDuracionBuceo(){
+
+    public int getDuracionBuceo() {
         return duracionBuceo;
     }
     public double getRecinto() {
@@ -36,13 +40,14 @@ public class ReptilesAcuaticos extends Reptiles{
     public void setRecinto(double recinto) {
         this.recinto = recinto;
     }
+
     public double asignarRecinto(double longitud) {
         if (longitud < 0.2) {
-            return 1.0; 
+            return 1.0;
         } else if (longitud >= 0.2 && longitud <= 0.4) {
-            return 2.0; 
+            return 2.0;
         } else {
-            return 4.0; 
-        }   
+            return 4.0;
+        }
     }
 }

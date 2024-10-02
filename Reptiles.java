@@ -8,10 +8,11 @@ public class Reptiles extends Animales {
         this.cantidad_huevos = cantidad_huevos;
     }
 
-    public int getTemperatura_corporal(){
+    public int getTemperatura_corporal() {
         return temperatura_corporal;
     }
-    public int getCantidad_huevos(){
+
+    public int getCantidad_huevos() {
         return cantidad_huevos;
     }
 
