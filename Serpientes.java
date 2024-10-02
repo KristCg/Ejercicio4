@@ -27,4 +27,13 @@ public class Serpientes extends Reptiles{
         return tipo_veneno;
     }
     
+    public String asignarRecinto(double longitud) {
+        if (longitud < 1) {
+            return "Recinto de 1-2 metros cuadrados para serpiente pequeña.";
+        } else if (longitud >= 1 && longitud <= 2) {
+            return "Recinto de 2-4 metros cuadrados para serpiente mediana.";
+        } else {
+            return "Recinto de 4-6 metros cuadrados para serpiente grande.";
+        }
+    }
 }
