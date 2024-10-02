@@ -21,7 +21,6 @@ public class Main extends JFrame {
     private JCheckBox esVenenosaCheckBox;
     private JButton guardarButton;
     private JTextArea historialTextArea;
-    private JButton verificarPresupuestoButton;
     private JTextField presupuestoField;
     private JTextField costoAlimentacionField;
     private JTextField tamañoReptilField;
@@ -51,7 +50,7 @@ public class Main extends JFrame {
         setJMenuBar(menuBar);
 
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(9, 2));
+        panel.setLayout(new GridLayout(10, 2));
 
         JLabel nombreCientificoLabel = new JLabel("Nombre científico:");
         nombreCientificoField = new JTextField();
@@ -197,15 +196,15 @@ public class Main extends JFrame {
             String tamañoReptil = tamañoReptilField.getText();
             double presupuestoDado = Double.parseDouble(presupuestoField.getText());
             double costoAlimentacion = Double.parseDouble(costoAlimentacionField.getText());
+            Animales animales = new Animales("",0);
 
-            Animales costoMantenimiento = new CostoMantenimiento();
-            double costoMes = costoMantenimiento.CostoMantenimiento(tamañoReptil, costoAlimentacion);
+        // Calcular el costo de mantenimiento
+            double costoMes = animales.CostoMantenimiento(tamañoReptil, costoAlimentacion);
 
-            if (costoMantenimiento.PresupuestoRecinto(presupuestoDado, costoMes)) {
-                JOption
-                }
+        // Verificar si el presupuesto es suficiente
+            if (animales.PresupuestoRecinto(presupuestoDado, costoMes)) {
                 JOptionPane.showMessageDialog(null, "El presupuesto es suficiente.");
-            } else {
+            }else {
             JOptionPane.showMessageDialog(null, "El presupuesto no es suficiente.");
             }
         } catch (NumberFormatException ex) {
@@ -213,8 +212,7 @@ public class Main extends JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Ocurrió un error al verificar el presupuesto: " + ex.getMessage());
     }
-        
-
+}
     private void actualizarHistorial() {
         StringBuilder historial = new StringBuilder();
         for (Serpientes serpiente : serpientes) {
