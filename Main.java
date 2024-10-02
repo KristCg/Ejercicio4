@@ -8,7 +8,9 @@ import java.util.List;
 public class Main extends JFrame {
 
     String archivoCSV = "data/Serpientes.csv";
+    String archivoCSVReptiles = "data/ReptilesAcua.csv";
     LeerCSV ar = new LeerCSV(archivoCSV);
+    LeerCSV arReptiles = new LeerCSV(archivoCSVReptiles);
 
     private JTextField nombreCientificoField;
     private JTextField longitudField;
@@ -22,10 +24,24 @@ public class Main extends JFrame {
     public Main() {
         serpientes = new ArrayList<>();
 
-        setTitle("Registro de Serpientes");
+        setTitle("Registro de Animales");
         setSize(500, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+
+        JMenuBar menuBar = new JMenuBar();
+
+        JMenu menu = new JMenu("Opciones");
+        JMenuItem menuSerpientes = new JMenuItem("Agregar Serpientes");
+        JMenuItem menuReptiles = new JMenuItem("Agregar Reptiles Acuáticos");
+        JMenuItem menuPresupuesto = new JMenuItem("Verificar Presupuesto");
+
+        menu.add(menuSerpientes);
+        menu.add(menuReptiles);
+        menu.add(menuPresupuesto);
+        menuBar.add(menu);
+
+        setJMenuBar(menuBar);
 
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(6, 2));
@@ -45,10 +61,9 @@ public class Main extends JFrame {
         guardarButton = new JButton("Guardar");
 
         historialTextArea = new JTextArea(10, 30);
-        historialTextArea.setEditable(false); // El historial solo se puede leer
+        historialTextArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(historialTextArea);
 
-        // Agregar componentes al panel
         panel.add(nombreCientificoLabel);
         panel.add(nombreCientificoField);
 
@@ -74,6 +89,18 @@ public class Main extends JFrame {
 
         serpientes = ar.Leer();
         actualizarHistorial();
+
+        menuSerpientes.addActionListener(e -> {
+            mostrarFormularioSerpientes();
+        });
+
+        menuReptiles.addActionListener(e -> {
+            mostrarFormularioReptiles();
+        });
+
+        menuPresupuesto.addActionListener(e -> {
+            verificarPresupuesto();
+        });
 
         guardarButton.addActionListener(new ActionListener() {
             @Override
@@ -106,6 +133,18 @@ public class Main extends JFrame {
                 }
             }
         });
+    }
+
+    private void mostrarFormularioSerpientes() {
+        JOptionPane.showMessageDialog(this, "Formulario para agregar serpientes.");
+    }
+
+    private void mostrarFormularioReptiles() {
+        JOptionPane.showMessageDialog(this, "Formulario para agregar reptiles acuáticos.");
+    }
+
+    private void verificarPresupuesto() {
+        JOptionPane.showMessageDialog(this, "Verificación de presupuesto no implementada.");
     }
 
     private void actualizarHistorial() {
