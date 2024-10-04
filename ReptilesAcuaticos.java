@@ -6,8 +6,8 @@ public class ReptilesAcuaticos extends Reptiles{
     private int duracionBuceo;
     private double recinto;
 
-    public ReptilesAcuaticos(String nombre_cientifico, int esperanza_de_vida, int temperatura_corporal, int cantidad_huevos, double longitud, String especie, boolean tipoAgua, int velocidadNado, int duracionBuceo){
-        super(nombre_cientifico, esperanza_de_vida, temperatura_corporal, cantidad_huevos);
+    public ReptilesAcuaticos(String nombre_cientifico, int esperanza_de_vida,int peso, int temperatura_corporal, int cantidad_huevos, double longitud, String especie, boolean tipoAgua, int velocidadNado, int duracionBuceo){
+        super(nombre_cientifico, esperanza_de_vida, peso,  temperatura_corporal, cantidad_huevos);
         this.longitud = longitud;
         this.especie = especie;
         this.tipoAgua = tipoAgua;

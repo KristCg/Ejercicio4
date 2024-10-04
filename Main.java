@@ -73,14 +73,14 @@ public class Main extends JFrame {
         JLabel esVenenosaLabel = new JLabel("¿Es venenosa?");
         esVenenosaCheckBox = new JCheckBox();
 
-        JLabel tamañoReptilLabel = new JLabel("Tamaño del reptil (pequeño, mediano, grande):");  // Añadido
-        tamañoReptilField = new JTextField();  // Añadido
+        // JLabel tamañoReptilLabel = new JLabel("Tamaño del reptil (pequeño, mediano, grande):");  
+        // tamañoReptilField = new JTextField(); 
 
-        JLabel presupuestoLabel = new JLabel("Presupuesto disponible:");  // Añadido
-        presupuestoField = new JTextField();  // Añadido
+        JLabel presupuestoLabel = new JLabel("Presupuesto disponible:");  
+        presupuestoField = new JTextField();  
 
-        JLabel costoAlimentacionLabel = new JLabel("Costo de alimentación mensual:");  // Añadido
-        costoAlimentacionField = new JTextField();
+        // JLabel costoAlimentacionLabel = new JLabel("Costo de alimentación mensual:"); 
+        // costoAlimentacionField = new JTextField();
 
         guardarButton = new JButton("Guardar");
 
@@ -196,7 +196,7 @@ public class Main extends JFrame {
             String tamañoReptil = tamañoReptilField.getText();
             double presupuestoDado = Double.parseDouble(presupuestoField.getText());
             double costoAlimentacion = Double.parseDouble(costoAlimentacionField.getText());
-            Animales animales = new Animales("",0);
+            Animales animales = new Animales(nombreCientificoField, esperanzaDeVidaField);
 
         // Calcular el costo de mantenimiento
             double costoMes = animales.CostoMantenimiento(tamañoReptil, costoAlimentacion);
