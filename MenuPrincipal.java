@@ -62,7 +62,7 @@ public class MenuPrincipal extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Abrir la ventana para administrar datos
-                new VentanaAdministrarDatos().setVisible(true);
+                new VentanaReptiles().setVisible(true);
             }
         });
 
