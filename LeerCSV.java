@@ -29,11 +29,9 @@ public class LeerCSV {
                 String especie = datos[5];
                 String color_piel = datos[6];
                 boolean tipo_veneno = Integer.parseInt(datos[7]) == 1;
-                double recinto = Double.parseDouble(datos[8]);
 
-            
-                Serpientes serpiente = new Serpientes(nombre_cientifico, esperanza_de_vida, temperatura_corporal, cantidad_huevos, longitud, especie, color_piel, tipo_veneno);
-                serpiente.setRecinto(recinto);
+                Serpientes serpiente = new Serpientes(nombre_cientifico, esperanza_de_vida, temperatura_corporal,
+                        cantidad_huevos, longitud, especie, color_piel, tipo_veneno);
                 animales.add(serpiente);
             }
         } catch (IOException e) {
@@ -70,12 +68,11 @@ public class LeerCSV {
         }
     }
 
-
     public List<ReptilesAcuaticos> LeerReptilesAcuaticos() {
         List<ReptilesAcuaticos> reptilesAcuaticos = new ArrayList<>();
         String linea;
         String separador = ",";
-    
+
         try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV_reptilA))) {
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split(separador);
@@ -88,19 +85,19 @@ public class LeerCSV {
                 boolean tipoAgua = Integer.parseInt(datos[6]) == 1;
                 int velocidadNado = Integer.parseInt(datos[7]);
                 int duracionBuceo = Integer.parseInt(datos[8]);
-                double recinto = Double.parseDouble(datos[9]);
-    
-                ReptilesAcuaticos reptilAcuatico = new ReptilesAcuaticos(nombre_cientifico, esperanza_de_vida, temperatura_corporal, cantidad_huevos, longitud, especie, tipoAgua, velocidadNado, duracionBuceo);
-                reptilAcuatico.setRecinto(recinto);
+
+                ReptilesAcuaticos reptilAcuatico = new ReptilesAcuaticos(nombre_cientifico, esperanza_de_vida,
+                        temperatura_corporal, cantidad_huevos, longitud, especie, tipoAgua, velocidadNado,
+                        duracionBuceo);
                 reptilesAcuaticos.add(reptilAcuatico);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-    
+
         return reptilesAcuaticos;
     }
-    
+
     public void GuardarReptilesAcuaticos(List<ReptilesAcuaticos> reptilesAcuaticos) {
         try (FileWriter writer = new FileWriter(archivoCSV_reptilA)) {
             for (ReptilesAcuaticos reptilAcuatico : reptilesAcuaticos) {
