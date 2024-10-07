@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FormularioSerpientes extends JFrame {
     private JTextField nombreCientificoField;
@@ -51,7 +53,6 @@ public class FormularioSerpientes extends JFrame {
         guardarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 double longitud = Double.parseDouble(longitudField.getText());
                 String especie = especieField.getText();
                 String colorPiel = colorPielField.getText();
@@ -63,6 +64,12 @@ public class FormularioSerpientes extends JFrame {
                         Integer.parseInt(temperaturaCorporalField.getText()),
                         Integer.parseInt(cantidadHuevosField.getText()),
                         longitud, especie, colorPiel, tipoVeneno);
+
+                List<Serpientes> serpientes = new ArrayList<>();
+                serpientes.add(serpiente);
+
+                LeerCSV leerCSV = new LeerCSV("data/Serpientes.csv");
+                leerCSV.GuardarSerpientes(serpientes);
 
                 JOptionPane.showMessageDialog(null, "Serpiente guardada.");
             }

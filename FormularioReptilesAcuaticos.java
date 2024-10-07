@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FormularioReptilesAcuaticos extends JFrame {
     private JTextField nombreCientificoField;
@@ -64,7 +66,6 @@ public class FormularioReptilesAcuaticos extends JFrame {
         guardarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 double longitud = Double.parseDouble(longitudField.getText());
                 String especie = especieField.getText();
                 boolean tipoAgua = tipoAguaCheckBox.isSelected();
@@ -78,8 +79,12 @@ public class FormularioReptilesAcuaticos extends JFrame {
                         Integer.parseInt(cantidadHuevosField.getText()),
                         longitud, especie, tipoAgua, velocidadNado, duracionBuceo);
 
-                // Aquí puedes llamar a la lógica de guardar en CSV
-                // Ejemplo: leerCSV.GuardarReptilesAcuaticos(reptilAcuatico);
+                List<ReptilesAcuaticos> reptilesAcuaticos = new ArrayList<>();
+                reptilesAcuaticos.add(reptilAcuatico);
+
+                LeerCSV leerCSV = new LeerCSV("data/ReptilesAcua.csv");
+                leerCSV.GuardarReptilesAcuaticos(reptilesAcuaticos);
+
                 JOptionPane.showMessageDialog(null, "Reptil acuático guardado.");
             }
         });
