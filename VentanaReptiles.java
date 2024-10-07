@@ -155,4 +155,12 @@ public class VentanaReptiles extends JFrame {
         }
     }
 
+    public static void main(String[] args) {
+        
+        SwingUtilities.invokeLater(() -> {
+            VentanaReptiles ventana = new VentanaReptiles();
+            ventana.setVisible(true);
+        });
+    }
+
 }
