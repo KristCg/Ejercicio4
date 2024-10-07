@@ -31,13 +31,13 @@ public class MenuPrincipal extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(4, 1));
 
-        JLabel bienvenidaLabel = new JLabel("Seleccione una opción", SwingConstants.CENTER);
+        JLabel bienvenidaLabel = new JLabel("Seleccione una opción en el boton de opciones", SwingConstants.CENTER);
         panel.add(bienvenidaLabel);
 
         reptilesAcuaticosMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Abrir la ventana de formulario de reptiles acuáticos
+                
                 new FormularioReptilesAcuaticos().setVisible(true);
             }
         });
@@ -45,7 +45,7 @@ public class MenuPrincipal extends JFrame {
         serpientesMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Abrir la ventana de formulario de serpientes
+                
                 new FormularioSerpientes().setVisible(true);
             }
         });
@@ -53,15 +53,15 @@ public class MenuPrincipal extends JFrame {
         presupuestoMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Abrir la ventana de presupuesto
-                new VentanaPresupuesto().setVisible(true);
+                
+                new MenuPresupuesto(null).setVisible(true);
             }
         });
 
         administrarDatosMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Abrir la ventana para administrar datos
+                
                 new VentanaReptiles().setVisible(true);
             }
         });

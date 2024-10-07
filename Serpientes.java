@@ -6,7 +6,7 @@ public class Serpientes extends Reptiles {
     private double recinto;
 
     public Serpientes(String nombre_cientifico, int esperanza_de_vida, int temperatura_corporal, int cantidad_huevos,double longitud, String especie, String color_piel, boolean tipo_veneno) {
-        super(nombre_cientifico, esperanza_de_vida, temperatura_corporal, cantidad_huevos);
+        super(nombre_cientifico, esperanza_de_vida, temperatura_corporal, cantidad_huevos, false, 0, "");
         this.longitud = longitud;
         this.especie = especie;
         this.color_piel = color_piel;

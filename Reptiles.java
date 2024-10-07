@@ -35,7 +35,7 @@ public class Reptiles extends Animales {
         return cuidadosEspeciales;
     }
 
-    public void setTemperatura(double temperatura_corporal) {
+    public void setTemperatura(int temperatura_corporal) {
         this.temperatura_corporal = temperatura_corporal;
     }
 

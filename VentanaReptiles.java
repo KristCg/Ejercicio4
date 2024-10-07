@@ -56,7 +56,7 @@ public class VentanaReptiles extends JFrame {
                 String[] datos = linea.split(separador);
                 String nombre = datos[0];
                 int esperanzaDeVida = Integer.parseInt(datos[1]);
-                double temperatura = Double.parseDouble(datos[2]);
+                int temperatura = Integer.parseInt(datos[2]);
                 int cantidadHuevos = Integer.parseInt(datos[3]);
                 boolean esIntercambio = Boolean.parseBoolean(datos[4]);
                 double mantenimiento = Double.parseDouble(datos[5]);
@@ -127,7 +127,7 @@ public class VentanaReptiles extends JFrame {
             if (opcion == JOptionPane.OK_OPTION) {
                 reptilSeleccionado.setNombre(nombreField.getText());
                 reptilSeleccionado.setEsperanzaDeVida(Integer.parseInt(esperanzaDeVidaField.getText()));
-                reptilSeleccionado.setTemperatura(Double.parseDouble(temperaturaField.getText()));
+                reptilSeleccionado.setTemperatura(Integer.parseInt(temperaturaField.getText()));
                 reptilSeleccionado.setCantidadHuevos(Integer.parseInt(cantidadHuevosField.getText()));
                 reptilSeleccionado.setEsIntercambio(esIntercambioCheckBox.isSelected());
                 reptilSeleccionado.setMantenimiento(Double.parseDouble(mantenimientoField.getText()));
