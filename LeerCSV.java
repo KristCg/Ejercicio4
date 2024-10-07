@@ -11,6 +11,7 @@ public class LeerCSV {
 
     public LeerCSV(String archivoCSV_serpiente) {
         this.archivoCSV_serpiente = archivoCSV_serpiente;
+        
     }
 
     public List<Serpientes> Leer() {
@@ -126,4 +127,5 @@ public class LeerCSV {
             e.printStackTrace();
         }
     }
+    
 }

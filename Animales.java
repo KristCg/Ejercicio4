@@ -15,6 +15,13 @@ public class Animales{
         return esperanza_de_vida;
     }
 
+    public void setNombre(String nombre_cientifico) {
+        this.nombre_cientifico = nombre_cientifico;
+    }
+
+    public void setEsperanzaDeVida(int esperanza_de_vida) {
+        this.esperanza_de_vida = esperanza_de_vida;
+    }
 
     public double CostoMantenimiento(String longitud, double costo_alimentacion){
         double costoMes = 0.00;

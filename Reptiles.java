@@ -2,11 +2,17 @@
 public class Reptiles extends Animales {
     protected int temperatura_corporal;
     protected int cantidad_huevos;
+    private boolean esIntercambio;
+    private double mantenimiento;
+    private String cuidadosEspeciales;
 
-    public Reptiles(String nombre_cientifico, int esperanza_de_vida, int temperatura_corporal, int cantidad_huevos) {
+    public Reptiles(String nombre_cientifico, int esperanza_de_vida, int temperatura_corporal, int cantidad_huevos, boolean esIntercambio, double mantenimiento, String cuidadosEspeciales) {
         super(nombre_cientifico, esperanza_de_vida);
         this.temperatura_corporal = temperatura_corporal;
         this.cantidad_huevos = cantidad_huevos;
+        this.esIntercambio = esIntercambio;
+        this.mantenimiento = mantenimiento;
+        this.cuidadosEspeciales = cuidadosEspeciales;
     }
 
     public int getTemperatura_corporal() {
@@ -15,6 +21,39 @@ public class Reptiles extends Animales {
 
     public int getCantidad_huevos() {
         return cantidad_huevos;
+    }
+
+    public boolean isEsIntercambio() {
+        return esIntercambio;
+    }
+
+    public double getMantenimiento() {
+        return mantenimiento;
+    }
+
+    public String getCuidadosEspeciales() {
+        return cuidadosEspeciales;
+    }
+
+    public void setTemperatura(double temperatura_corporal) {
+        this.temperatura_corporal = temperatura_corporal;
+    }
+
+
+    public void setCantidadHuevos(int cantidad_huevos) {
+        this.cantidad_huevos = cantidad_huevos;
+    }
+
+    public void setEsIntercambio(boolean esIntercambio) {
+        this.esIntercambio = esIntercambio;
+    }
+
+    public void setMantenimiento(double mantenimiento) {
+        this.mantenimiento = mantenimiento;
+    }
+
+    public void setCuidadosEspeciales(String cuidadosEspeciales) {
+        this.cuidadosEspeciales = cuidadosEspeciales;
     }
 
     public double cantidadComida(double longitud, double peso) {
@@ -32,12 +71,10 @@ public class Reptiles extends Animales {
     }
 
     public double costoAlimentacionTotal(double longitud, double peso) {
-        // Llamamos al método cantidadComida para obtener la cantidad de comida en
-        // gramos
+    
         double cantidadComidaEnGramos = cantidadComida(longitud, peso);
 
-        // Calculamos el costo total de la alimentación multiplicando la cantidad de
-        // comida por el costo por gramo
+        
         double costo_alimentacion = cantidadComidaEnGramos * 0.25;
 
         return costo_alimentacion;
