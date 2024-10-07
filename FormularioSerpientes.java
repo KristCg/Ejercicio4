@@ -82,7 +82,7 @@ public class FormularioSerpientes extends JFrame {
                         List<Serpientes> serpientes = new ArrayList<>();
                         serpientes.add(serpiente);
 
-                        LeerCSV leerCSV = new LeerCSV("data/Serpientes.csv");
+                        LeerCSV leerCSV = new LeerCSV("Ejercicio4\\data\\Serpientes.csv");
                         leerCSV.GuardarSerpientes(serpientes);
 
                         JOptionPane.showMessageDialog(null, "Serpiente guardada.");
