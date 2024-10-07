@@ -82,7 +82,7 @@ public class FormularioReptilesAcuaticos extends JFrame {
                 List<ReptilesAcuaticos> reptilesAcuaticos = new ArrayList<>();
                 reptilesAcuaticos.add(reptilAcuatico);
 
-                LeerCSV leerCSV = new LeerCSV("Ejercicio4\\data\\ReptilesAcua.csv");
+                LeerCSV leerCSV = new LeerCSV("Ejercicio4\\data\\ReptilesAcuaticos.csv");
                 leerCSV.GuardarReptilesAcuaticos(reptilesAcuaticos);
 
                 JOptionPane.showMessageDialog(null, "Reptil acuático guardado.");

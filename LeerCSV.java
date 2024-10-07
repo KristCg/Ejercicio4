@@ -7,7 +7,7 @@ import java.util.List;
 
 public class LeerCSV {
     private String archivoCSV_serpiente;
-    private String archivoCSV_reptilA;
+    private String archivoCSV_reptilA = "Ejercicio4\\data\\ReptilesAcuaticos.csv";
 
     public LeerCSV(String archivoCSV_serpiente) {
         this.archivoCSV_serpiente = archivoCSV_serpiente;
