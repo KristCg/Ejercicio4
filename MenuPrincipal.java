@@ -54,7 +54,7 @@ public class MenuPrincipal extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Abrir la ventana de presupuesto
-                // new VentanaPresupuesto().setVisible(true);
+                new VentanaPresupuesto().setVisible(true);
             }
         });
 
@@ -62,7 +62,7 @@ public class MenuPrincipal extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Abrir la ventana para administrar datos
-                // new VentanaAdministrarDatos().setVisible(true);
+                new VentanaAdministrarDatos().setVisible(true);
             }
         });
 
